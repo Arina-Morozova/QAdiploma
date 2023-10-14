@@ -25,12 +25,10 @@ services:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
 
-  node:
-    image: node:16-alpine
-    user: "node"
+  node-app:
+    build: .
+    image: node-app:1.0
     ports:
       - '9999:9999'
-    working_dir: /app
     volumes:
-      - ./gate-simulator/:/app
-    command: "npm start"
+      - ./artifacts/gate-simulator/:/app
