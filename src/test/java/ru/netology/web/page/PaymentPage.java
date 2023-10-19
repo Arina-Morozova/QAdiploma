@@ -7,6 +7,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PaymentPage {
 
-    private final SelenideElement buyButton = $("button");
-    private final SelenideElement buyOnCreditButton = $(byText("Купить в кредит"));
+    private final SelenideElement debitButton = $("button");
+    private final SelenideElement creditButton = $(byText("Купить в кредит"));
+
+
 }

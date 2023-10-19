@@ -14,4 +14,6 @@ public class DebitPage {
     private final SelenideElement nameInput = $(byText("Владелец"));
     private final SelenideElement cvcInput = $(byText("CVC/CVV"));
     private final SelenideElement continueButton = $(byText("Продолжить"));
+
+
 }
