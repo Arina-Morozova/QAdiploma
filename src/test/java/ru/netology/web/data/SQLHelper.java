@@ -12,27 +12,24 @@ public class SQLHelper {
 
     private static final QueryRunner runner = new QueryRunner();
 
-    private SQLHelper() {
-    }
-
     private static Connection getConn() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
     }
 
     @SneakyThrows
-    public static DataHelper.DebitTranzactionStatus getDebitTranzactionStatus() {
+    public String getDebitStatus() {
         var debitStatusSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         var conn = getConn();
         var debitStatus = runner.query(conn, debitStatusSQL, new ScalarHandler<String>());
-        return new DataHelper.DebitTranzactionStatus(debitStatus);
+        return debitStatus;
     }
 
     @SneakyThrows
-    public static DataHelper.CreditTranzactionStatus getCreditTranzactionStatus() {
+    public String getCreditStatus() {
         var creditStatusSQL = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
         var conn = getConn();
         var creditStatus = runner.query(conn, creditStatusSQL, new ScalarHandler<String>());
-        return new DataHelper.CreditTranzactionStatus(creditStatus);
+        return creditStatus;
     }
 
 }
