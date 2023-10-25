@@ -29,6 +29,15 @@ public class DebitTest {
     void shouldNotPayWithEmptyCardNumber() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCardNumber();
         var debitPage = paymentPage.debitPayment(cardInfo);
-        debitPage.verifySuccessMessage();
+        debitPage.verifyInvalidFormatCardNumber();
     }
+
+    @Test
+    void shouldNotPayWithInvalidCardNumber() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumber();
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.verifyInvalidFormatCardNumber();
+    }
+
+
 }

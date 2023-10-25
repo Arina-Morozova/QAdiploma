@@ -38,4 +38,33 @@ public class CreditPage {
     public void verifyErrorMessage() {
         errorMessage.shouldBe(visible, Duration.ofSeconds(15));
     }
+
+    public CreditPage clickContinueButton() {
+        continueButton.click();
+        return this;
+    }
+
+    public void verifyInvalidFormatCardNumber() {
+        errorMessageForInvalidNumberOfCard.shouldBe(visible);
+    }
+
+    public void verifyInvalidFormatMonth() {
+        errorMessageForInvalidMonth.shouldBe(visible);
+    }
+
+    public void verifyInvalidFormatYear() {
+        errorMessageForInvalidYear.shouldBe(visible);
+    }
+
+    public void verifyInvalidFormatCvc() {
+        errorMessageForInvalidCvc.shouldBe(visible);
+    }
+
+    public void verifyNullName() {
+        errorMessageForNullName.shouldBe(visible);
+    }
+
+    public void verifyNullYear() {
+        errorMessageForNullYear.shouldBe(visible);
+    }
 }

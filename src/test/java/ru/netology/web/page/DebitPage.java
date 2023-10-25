@@ -1,7 +1,6 @@
 package ru.netology.web.page;
 
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.web.data.DataHelper;
 
 import java.time.Duration;
 
@@ -40,8 +39,32 @@ public class DebitPage {
         errorMessage.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-//    public DebitPage continue(DataHelper.CardInfo info) {
-//        continueButton.click();
-//        return new DebitPage();
-//    }
+    public DebitPage clickContinueButton() {
+        continueButton.click();
+        return this;
+    }
+
+    public void verifyInvalidFormatCardNumber() {
+        errorMessageForInvalidNumberOfCard.shouldBe(visible);
+    }
+
+    public void verifyInvalidFormatMonth() {
+        errorMessageForInvalidMonth.shouldBe(visible);
+    }
+
+    public void verifyInvalidFormatYear() {
+        errorMessageForInvalidYear.shouldBe(visible);
+    }
+
+    public void verifyInvalidFormatCvc() {
+        errorMessageForInvalidCvc.shouldBe(visible);
+    }
+
+    public void verifyNullName() {
+        errorMessageForNullName.shouldBe(visible);
+    }
+
+    public void verifyNullYear() {
+        errorMessageForNullYear.shouldBe(visible);
+    }
 }
