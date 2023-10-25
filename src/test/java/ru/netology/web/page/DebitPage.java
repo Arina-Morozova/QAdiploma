@@ -1,6 +1,7 @@
 package ru.netology.web.page;
 
 import com.codeborne.selenide.SelenideElement;
+import ru.netology.web.data.DataHelper;
 
 import java.time.Duration;
 
@@ -29,6 +30,15 @@ public class DebitPage {
 
     public DebitPage() {
         debitHead.shouldBe(visible);
+    }
+
+    public void enterCardData(DataHelper.CardInfo cardInfo) {
+        cardsNumberInput.setValue(cardInfo.getCardNumber());
+        monthInput.setValue(cardInfo.getMonth());
+        yearInput.setValue(cardInfo.getYear());
+        nameInput.setValue(cardInfo.getName());
+        cvcInput.setValue(cardInfo.getCvc());
+        continueButton.click();
     }
 
     public void verifySuccessMessage() {
