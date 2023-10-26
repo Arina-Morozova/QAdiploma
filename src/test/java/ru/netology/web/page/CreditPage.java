@@ -14,11 +14,11 @@ import static com.codeborne.selenide.Selenide.$$;
 public class CreditPage {
 
     private final SelenideElement creditHead = $(byText("Кредит по данным карты"));
-    private final SelenideElement cardsNumberInput = $("[placeholder=0000 0000 0000 0000]");
-    private final SelenideElement monthInput = $("[placeholder=08]");
-    private final SelenideElement yearInput = $("[placeholder=22]");
+    private final SelenideElement cardsNumberInput = $("[placeholder='0000 0000 0000 0000']");
+    private final SelenideElement monthInput = $("[placeholder='08']");
+    private final SelenideElement yearInput = $("[placeholder='22']");
     private final SelenideElement nameInput = $$(".input__top").find(text("Владелец")).parent();
-    private final SelenideElement cvcInput = $("[placeholder=999]");
+    private final SelenideElement cvcInput = $("[placeholder='999']");
     private final SelenideElement continueButton = $(byText("Продолжить"));
     private final SelenideElement successMessage = $(".notification_status_ok");
     private final SelenideElement errorMessage = $(".notification_status_error");
