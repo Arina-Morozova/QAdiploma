@@ -35,7 +35,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithEmptyMonth() {
+    void shouldNotPayWithEmptyMonthApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyMonth("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -43,7 +43,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithEmptyYear() {
+    void shouldNotPayWithEmptyYearApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -51,7 +51,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithEmptyName() {
+    void shouldNotPayWithEmptyNameApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyName("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -59,7 +59,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithEmptyCvc() {
+    void shouldNotPayWithEmptyCvcApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -99,7 +99,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidMonth() {
+    void shouldNotPayWithInvalidMonthApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonth("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -107,7 +107,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidMonthWithOneNumber() {
+    void shouldNotPayWithInvalidMonthWithOneNumberApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithOneNumber("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -115,7 +115,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidMonthWithLetters() {
+    void shouldNotPayWithInvalidMonthWithLettersApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithLetters("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -123,7 +123,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidMonthWithSymbols() {
+    void shouldNotPayWithInvalidMonthWithSymbolsApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithSymbols("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -131,7 +131,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidYear() {
+    void shouldNotPayWithInvalidYearApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYear("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -139,7 +139,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidYearWithOneNumber() {
+    void shouldNotPayWithInvalidYearWithOneNumberApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -147,7 +147,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidYearWithLetters() {
+    void shouldNotPayWithInvalidYearWithLettersApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -155,7 +155,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidYearWithSymbols() {
+    void shouldNotPayWithInvalidYearWithSymbolsApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -163,7 +163,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidNameWithOneLetter() {
+    void shouldNotPayWithInvalidNameWithOneLetterApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -171,7 +171,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidNameWithNumbers() {
+    void shouldNotPayWithInvalidNameWithNumbersApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -179,7 +179,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidNameWithCyrillic() {
+    void shouldNotPayWithInvalidNameWithCyrillicApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -187,7 +187,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidNameWithSymbols() {
+    void shouldNotPayWithInvalidNameWithSymbolsApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -195,7 +195,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidCvcWithOneNumber() {
+    void shouldNotPayWithInvalidCvcWithOneNumberApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -203,7 +203,7 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidCvcWithLetters() {
+    void shouldNotPayWithInvalidCvcWithLettersApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
@@ -211,8 +211,169 @@ public class DebitTest {
     }
 
     @Test
-    void shouldNotPayWithInvalidCvcWithSymbols() {
+    void shouldNotPayWithInvalidCvcWithSymbolsApprovedCard() {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("approved");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatCvc();
+    }
+
+    @Test
+    void shouldSuccessPaymentDeclinedCard() {
+        var cardInfo = new DataHelper().getValidCardInfo("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyErrorMessage();
+        assertEquals ("DECLINED", new SQLHelper().getDebitStatus());
+    }
+
+    @Test
+    void shouldNotPayWithEmptyMonthDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyMonth("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatMonth();
+    }
+
+    @Test
+    void shouldNotPayWithEmptyYearDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyNullYear();
+    }
+
+    @Test
+    void shouldNotPayWithEmptyNameDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyName("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyNullName();
+    }
+
+    @Test
+    void shouldNotPayWithEmptyCvcDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatCvc();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidMonthDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonth("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatMonth();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidMonthWithOneNumberDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithOneNumber("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatMonth();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidMonthWithLettersDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithLetters("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatMonth();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidMonthWithSymbolsDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithSymbols("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatMonth();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidYearDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYear("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatYear();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidYearWithOneNumberDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatYear();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidYearWithLettersDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatYear();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidYearWithSymbolsDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatYear();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidNameWithOneLetterDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatName();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidNameWithNumbersDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatName();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidNameWithCyrillicDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatName();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidNameWithSymbolsDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatName();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidCvcWithOneNumberDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatCvc();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidCvcWithLettersDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("declined");
+        var debitPage = paymentPage.debitPayment(cardInfo);
+        debitPage.enterCardData(cardInfo);
+        debitPage.verifyInvalidFormatCvc();
+    }
+
+    @Test
+    void shouldNotPayWithInvalidCvcWithSymbolsDeclinedCard() {
+        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
         debitPage.verifyInvalidFormatCvc();

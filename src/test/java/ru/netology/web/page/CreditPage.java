@@ -1,5 +1,6 @@
 package ru.netology.web.page;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
 
@@ -17,7 +18,8 @@ public class CreditPage {
     private final SelenideElement cardsNumberInput = $("[placeholder='0000 0000 0000 0000']");
     private final SelenideElement monthInput = $("[placeholder='08']");
     private final SelenideElement yearInput = $("[placeholder='22']");
-    private final SelenideElement nameInput = $$(".input__top").find(text("Владелец")).parent();
+    private ElementsCollection input = $$(".input__control");
+    private final SelenideElement nameInput = input.get(3);
     private final SelenideElement cvcInput = $("[placeholder='999']");
     private final SelenideElement continueButton = $(byText("Продолжить"));
     private final SelenideElement successMessage = $(".notification_status_ok");
