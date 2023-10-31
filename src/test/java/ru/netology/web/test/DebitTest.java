@@ -31,7 +31,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCardNumber();
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCardNumber();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -47,7 +47,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyNullYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -63,7 +63,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -71,7 +71,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumber();
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCardNumber();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -79,7 +79,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithLetters();
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCardNumber();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -87,7 +87,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithSymbols();
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCardNumber();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -95,7 +95,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber();
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCardNumber();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -143,7 +143,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -151,7 +151,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -159,7 +159,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -167,7 +167,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -175,7 +175,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -183,7 +183,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -191,7 +191,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -199,7 +199,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -207,7 +207,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -215,7 +215,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("approved");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -240,7 +240,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyNullYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -256,7 +256,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -304,7 +304,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -312,7 +312,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -320,7 +320,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatYear();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -328,7 +328,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -336,7 +336,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -344,7 +344,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -352,7 +352,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatName();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -360,7 +360,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -368,7 +368,7 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 
     @Test
@@ -376,6 +376,6 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("declined");
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormatCvc();
+        debitPage.verifyInvalidFormat();
     }
 }

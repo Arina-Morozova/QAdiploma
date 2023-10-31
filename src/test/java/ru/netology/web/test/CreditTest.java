@@ -32,7 +32,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCardNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCardNumber();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyNullYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -64,7 +64,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCardNumber();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -80,7 +80,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithLetters();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCardNumber();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -88,7 +88,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithSymbols();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCardNumber();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -96,7 +96,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCardNumber();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -144,7 +144,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -152,7 +152,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -160,7 +160,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -168,7 +168,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -176,7 +176,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -184,7 +184,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -192,7 +192,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -200,7 +200,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -208,7 +208,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -216,7 +216,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -241,7 +241,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyNullYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -257,7 +257,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -305,7 +305,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -313,7 +313,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -321,7 +321,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatYear();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -329,7 +329,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -337,7 +337,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -345,7 +345,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -353,7 +353,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatName();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -361,7 +361,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -369,7 +369,7 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 
     @Test
@@ -377,6 +377,6 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormatCvc();
+        creditPage.verifyInvalidFormat();
     }
 }

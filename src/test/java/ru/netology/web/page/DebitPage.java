@@ -24,13 +24,10 @@ public class DebitPage {
     private final SelenideElement continueButton = $(byText("Продолжить"));
     private final SelenideElement successMessage = $(".notification_status_ok");
     private final SelenideElement errorMessage = $(".notification_status_error");
-    private final SelenideElement errorMessageForInvalidNumberOfCard = $(".input_invalid .input__sub");
+    private final SelenideElement invalidFormat = $(".input_invalid .input__sub");
     private final SelenideElement errorMessageForInvalidMonth = $(".input-group__input-case_invalid .input__sub");
     private final SelenideElement errorMessageForInvalidYear = $(byText("Истёк срок действия карты"));
-    private final SelenideElement errorMessageForInvalidCvc = $(byText("Неверный формат"));
     private final SelenideElement errorMessageForNullName = $(byText("Поле обязательно для заполнения"));
-    private final SelenideElement errorMessageForNullYear = $(byText("Неверный формат"));
-
 
     public DebitPage() {
         debitHead.shouldBe(visible);
@@ -58,10 +55,6 @@ public class DebitPage {
         return this;
     }
 
-    public void verifyInvalidFormatCardNumber() {
-        errorMessageForInvalidNumberOfCard.shouldBe(visible);
-    }
-
     public void verifyInvalidFormatMonth() {
         errorMessageForInvalidMonth.shouldBe(visible);
     }
@@ -70,15 +63,11 @@ public class DebitPage {
         errorMessageForInvalidYear.shouldBe(visible);
     }
 
-    public void verifyInvalidFormatCvc() {
-        errorMessageForInvalidCvc.shouldBe(visible);
-    }
-
     public void verifyNullName() {
         errorMessageForNullName.shouldBe(visible);
     }
 
-    public void verifyNullYear() {
-        errorMessageForNullYear.shouldBe(visible);
+    public void verifyInvalidFormat() {
+        invalidFormat.shouldBe(visible);
     }
 }

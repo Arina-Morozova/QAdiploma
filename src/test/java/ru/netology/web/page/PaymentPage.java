@@ -16,8 +16,8 @@ public class PaymentPage {
         return new DebitPage();
     }
 
-    public DebitPage creditPayment(DataHelper.CardInfo info) {
+    public CreditPage creditPayment(DataHelper.CardInfo info) {
         creditButton.click();
-        return new DebitPage();
+        return new CreditPage();
     }
 }
