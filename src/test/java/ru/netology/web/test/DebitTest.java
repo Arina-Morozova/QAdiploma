@@ -95,7 +95,8 @@ public class DebitTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber();
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
-        debitPage.verifyInvalidFormat();
+        debitPage.verifyErrorMessage();
+        assertEquals ("DECLINED", new SQLHelper().getDebitStatus());
     }
 
     @Test

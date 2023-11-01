@@ -96,7 +96,8 @@ public class CreditTest {
         var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
-        creditPage.verifyInvalidFormat();
+        creditPage.verifyErrorMessage();
+        assertEquals ("DECLINED", new SQLHelper().getCreditStatus());
     }
 
     @Test

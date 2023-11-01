@@ -41,7 +41,7 @@ public class DataHelper {
     }
 
     private static String generateRandomCvc() {
-        String cvc = Integer.toString(faker.number().numberBetween(000, 999));
+        String cvc = Integer.toString(faker.number().numberBetween(100, 999));
         return cvc;
     }
 
@@ -114,7 +114,7 @@ public class DataHelper {
 
     private static String generateInvalidYear() {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yy");
-        String year = Integer.toString(faker.number().numberBetween(00, 22));
+        String year = Integer.toString(faker.number().numberBetween(10, 22));
         return year;
     }
 
@@ -222,7 +222,7 @@ public class DataHelper {
     public static CardInfo getInvalidCardInfoWithInvalidCardNumber() {
         return new CardInfo(
                 generateInvalidCardNumber(),
-                generateInvalidMonth(),
+                generateRandomMonth(),
                 generateRandomYear(),
                 generateRandomName("en"),
                 generateRandomCvc());
@@ -231,7 +231,7 @@ public class DataHelper {
     public static CardInfo getInvalidCardInfoWithInvalidCardNumberWithLetters() {
         return new CardInfo(
                 generateInvalidCardNumberWithLetters(),
-                generateInvalidMonth(),
+                generateRandomMonth(),
                 generateRandomYear(),
                 generateRandomName("en"),
                 generateRandomCvc());
@@ -240,7 +240,7 @@ public class DataHelper {
     public static CardInfo getInvalidCardInfoWithInvalidCardNumberWithSymbols() {
         return new CardInfo(
                 generateInvalidCardNumberWithSymbols(),
-                generateInvalidMonth(),
+                generateRandomMonth(),
                 generateRandomYear(),
                 generateRandomName("en"),
                 generateRandomCvc());
@@ -249,7 +249,7 @@ public class DataHelper {
     public static CardInfo getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber() {
         return new CardInfo(
                 generateInvalidCardNumberWithNotExistNumber(),
-                generateInvalidMonth(),
+                generateRandomMonth(),
                 generateRandomYear(),
                 generateRandomName("en"),
                 generateRandomCvc());
@@ -331,7 +331,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateInvalidNameWithOneLetter(),
                 generateRandomCvc());
     }
@@ -340,7 +340,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateInvalidNameWithNumbers(),
                 generateRandomCvc());
     }
@@ -349,7 +349,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateRandomName("ru"),
                 generateRandomCvc());
     }
@@ -358,7 +358,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateInvalidNameWithSymbols(),
                 generateRandomCvc());
     }
@@ -367,7 +367,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateRandomName("en"),
                 generateInvalidCvcWithOneNumber());
     }
@@ -376,7 +376,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateRandomName("en"),
                 generateInvalidCvcWithLetters());
     }
@@ -385,7 +385,7 @@ public class DataHelper {
         return new CardInfo(
                 getCardNumber(card),
                 generateRandomMonth(),
-                generateInvalidYear(),
+                generateRandomYear(),
                 generateRandomName("en"),
                 generateInvalidCvcWithSymbols());
     }
