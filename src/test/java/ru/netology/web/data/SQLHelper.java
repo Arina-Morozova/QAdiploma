@@ -18,10 +18,10 @@ public class SQLHelper {
 
     @SneakyThrows
     public static Connection getConn() {
-        String url = System.getProperty("url");
+        var dbUrl = System.getProperty("db.url");
         String user = System.getProperty("user");
         String password = System.getProperty("password");
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(dbUrl, user, password);
     }
 
     @SneakyThrows
@@ -32,11 +32,10 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public String getCreditStatus() {
-        var creditStatusSQL = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
-        var conn = getConn();
-        var creditStatus = runner.query(conn, creditStatusSQL, new ScalarHandler<String>());
-        return creditStatus;
+    public static String getCreditStatus() {
+        String statusSQL = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
+        Connection conn = getConn();
+        return runner.query(conn, statusSQL, new ScalarHandler<String>());
     }
 
 }
