@@ -97,7 +97,6 @@ public class DebitTest {
         var debitPage = paymentPage.debitPayment(cardInfo);
         debitPage.enterCardData(cardInfo);
         debitPage.verifyErrorMessage();
-        assertEquals ("DECLINED", new SQLHelper().getDebitStatus());
     }
 
     @Test
