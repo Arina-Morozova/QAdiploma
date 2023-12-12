@@ -90,7 +90,6 @@ public class DataHelper {
     }
 
     private static String generateInvalidMonth() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM");
         String month = Integer.toString(faker.number().numberBetween(13, 99));
         return month;
     }
@@ -108,7 +107,6 @@ public class DataHelper {
     }
 
     private static String generateInvalidYear() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yy");
         String year = Integer.toString(faker.number().numberBetween(10, 22));
         return year;
     }

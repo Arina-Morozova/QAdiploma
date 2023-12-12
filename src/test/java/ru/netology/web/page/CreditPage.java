@@ -51,11 +51,6 @@ public class CreditPage {
         errorMessage.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public CreditPage clickContinueButton() {
-        continueButton.click();
-        return this;
-    }
-
     public void verifyInvalidFormatMonth() {
         errorMessageForInvalidMonth.shouldBe(visible);
     }

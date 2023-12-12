@@ -25,6 +25,13 @@ public class SQLHelper {
     }
 
     @SneakyThrows
+    public static void cleanDatabase() {
+        var connection = getConn();
+        runner.execute(connection, "DELETE FROM payment_entity");
+        runner.execute(connection, "DELETE FROM credit_request_entity");
+    }
+
+    @SneakyThrows
     public static String getDebitStatus() {
         String statusSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         Connection conn = getConn();

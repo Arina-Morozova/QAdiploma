@@ -1,5 +1,6 @@
 package ru.netology.web.test;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.web.data.DataHelper;
@@ -8,10 +9,16 @@ import ru.netology.web.page.PaymentPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.netology.web.data.SQLHelper.cleanDatabase;
 
 public class CreditTest {
 
     PaymentPage paymentPage;
+
+    @AfterAll
+    static void tearDownAll() {
+        cleanDatabase();
+    }
 
     @BeforeEach
     void setUp() {
@@ -24,12 +31,12 @@ public class CreditTest {
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifySuccessMessage();
-        assertEquals ("APPROVED", new SQLHelper().getCreditStatus());
+        assertEquals ("APPROVED", SQLHelper.getCreditStatus());
     }
 
     @Test
     void shouldNotPayWithEmptyCardNumber() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCardNumber();
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyCardNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -37,7 +44,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyMonthApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyMonth("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyMonth("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -45,7 +52,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyYearApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyYear("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -53,7 +60,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyNameApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyName("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyName("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyNullName();
@@ -61,7 +68,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyCvcApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyCvc("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -69,7 +76,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCardNumber() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumber();
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCardNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -77,7 +84,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCardNumberWithLetters() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithLetters();
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCardNumberWithLetters();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -85,7 +92,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCardNumberWithSymbols() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithSymbols();
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCardNumberWithSymbols();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -93,7 +100,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCardNumberWithNotExistNumber() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber();
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCardNumberWithNotExistNumber();
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyErrorMessage();
@@ -101,7 +108,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonth("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonth("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -109,7 +116,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthWithOneNumberApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithOneNumber("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonthWithOneNumber("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -117,7 +124,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthWithLettersApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithLetters("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonthWithLetters("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -125,7 +132,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthWithSymbolsApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithSymbols("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonthWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -133,7 +140,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYear("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYear("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatYear();
@@ -141,7 +148,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearWithOneNumberApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYearWithOneNumber("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -149,7 +156,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearWithLettersApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYearWithLetters("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -157,7 +164,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearWithSymbolsApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYearWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -165,7 +172,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithOneLetterApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithOneLetter("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -173,7 +180,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithNumbersApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithNumbers("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -181,7 +188,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithCyrillicApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithCyrillic("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -189,7 +196,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithSymbolsApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -197,7 +204,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCvcWithOneNumberApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCvcWithOneNumber("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -205,7 +212,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCvcWithLettersApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCvcWithLetters("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -213,7 +220,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCvcWithSymbolsApprovedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("approved");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCvcWithSymbols("approved");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -225,12 +232,12 @@ public class CreditTest {
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyErrorMessage();
-        assertEquals ("DECLINED", new SQLHelper().getCreditStatus());
+        assertEquals ("DECLINED", SQLHelper.getCreditStatus());
     }
 
     @Test
     void shouldNotPayWithEmptyMonthDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyMonth("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyMonth("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -238,7 +245,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyYearDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyYear("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyYear("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -246,7 +253,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyNameDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyName("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyName("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyNullName();
@@ -254,7 +261,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithEmptyCvcDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithEmptyCvc("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithEmptyCvc("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -262,7 +269,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonth("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonth("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -270,7 +277,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthWithOneNumberDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithOneNumber("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonthWithOneNumber("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -278,7 +285,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthWithLettersDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithLetters("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonthWithLetters("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -286,7 +293,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidMonthWithSymbolsDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidMonthWithSymbols("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidMonthWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatMonth();
@@ -294,7 +301,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYear("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYear("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormatYear();
@@ -302,7 +309,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearWithOneNumberDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithOneNumber("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYearWithOneNumber("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -310,7 +317,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearWithLettersDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithLetters("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYearWithLetters("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -318,7 +325,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidYearWithSymbolsDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidYearWithSymbols("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidYearWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -326,7 +333,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithOneLetterDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithOneLetter("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithOneLetter("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -334,7 +341,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithNumbersDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithNumbers("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithNumbers("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -342,7 +349,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithCyrillicDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithCyrillic("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithCyrillic("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -350,7 +357,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidNameWithSymbolsDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidNameWithSymbols("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidNameWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -358,7 +365,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCvcWithOneNumberDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithOneNumber("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCvcWithOneNumber("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -366,7 +373,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCvcWithLettersDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithLetters("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCvcWithLetters("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();
@@ -374,7 +381,7 @@ public class CreditTest {
 
     @Test
     void shouldNotPayWithInvalidCvcWithSymbolsDeclinedCard() {
-        var cardInfo = new DataHelper().getInvalidCardInfoWithInvalidCvcWithSymbols("declined");
+        var cardInfo = DataHelper.getInvalidCardInfoWithInvalidCvcWithSymbols("declined");
         var creditPage = paymentPage.creditPayment(cardInfo);
         creditPage.enterCardData(cardInfo);
         creditPage.verifyInvalidFormat();

@@ -50,11 +50,6 @@ public class DebitPage {
         errorMessage.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public DebitPage clickContinueButton() {
-        continueButton.click();
-        return this;
-    }
-
     public void verifyInvalidFormatMonth() {
         errorMessageForInvalidMonth.shouldBe(visible);
     }
